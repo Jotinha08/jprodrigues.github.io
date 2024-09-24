@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Criando um Data Warehouse e realizando visualizações</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="engdados.html" class="logo" target="_blank">Engenharia de Dados</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Página Inicial</a></li>
+							<li><a href="engdados.html">Engenharia de Dados</a></li>
+							<li><a href="ciencia.html">Ciência de Dados</a></li>
+							<li><a href="analise.html">Análise de Dados</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Criação de um Data Warehouse usando Redshift e visualizando os dados com Looker Studio<br/>
+									</h1>
+									<p>Criação e carga de dados para um Data Warehouse utilizando as ferramentas AWS Redshift e AWS S3 e depois realizando visualizações com o Looker Studio. Projeto desenvolvido no curso de Engenharia de Dados em Big Data.</p>
+								</header>
+								<div class="image main"><img src="images/data_warehouse/header_dw.jpg" alt="" /></div>
+								<p>O objetivo deste projeto foi criar um Data Warehouse utilizando a ferramenta AWS Redshift e logo após isso conectar o DW na ferramente Looker Studio e criar um pequeno dashboard para visualizar os dados. Aqui será registrado o passo a passo seguido e comentado de maneira detalhada.</p>
+								
+                            	<p>O primeiro ponto foi criar o DW no Redshift. Para isso foi preciso de uma conta na plataforma da AWS e logo em seguida foi selecionado a ferramenta do Redshift e criado um database chamado "ed" como mostra a imagem a seguir.
+                                </p>
+                                <div class="image main"><img src="images/data_warehouse/dw_criacao.png" alt="" /></div>
+								
+								<p>Logo após isso, foi usado um script disponibilizado pelo professor do curso para criação de 5 tabelas (Produtos, Vendedores, ItensVenda, Vendas e Clientes) dentro do DW, isso serve para que possamos importar os dados que estão armazenados em um bucket no AWS S3 dentro do nosso DW.
+                                    A imagem a seguir mostra um pouco do script.
+                                </p>
+								<div class="image main"><img src="images/data_warehouse/dw_script.png" alt="" /></div>
+
+								<p>O próximo passo foi fazer a importação dos dados salvos em um bucket no AWS S3 para dentro das tabelas criadas no Redshift. As duas imagens a seguir mostram os arquivos .csv salvos no bucket e uma parte do código para copiar os dados desses arquivos nas tabelas, respectivamente.
+                                </p>
+                                <div class="image main"><img src="images/data_warehouse/dw_bucket.png" alt="" /></div>
+                                <div class="image main"><img src="images/data_warehouse/dw_codigo.png" alt="" /></div>
+								<p>Esse trecho do código teve que ser utilizado 5 vezes, uma para cada tabela e arquivo no S3, única coisa que diferenciava um do outro era o caminho do arquivo .csv dentro do bucket (as credenciais não estão censuradas pois o bucket já foi excluído).</p>
+
+								<p>Depois dessas etapas, foi a vez de realizar os joins entre as tabelas e criar o nosso modelo análitico (que será utilizado no Looker Studio). Foi criado então a tabela "fatovendas" como pode ser observado na figura abaixo.</p>
+								<div class="image main"><img src="images/data_warehouse/dw_fatovenda.png" alt=""/></div>
+
+								<p>Por fim, foi feita a conexão do nosso DW com o Looker Studio e criado uma visualização simples sobre as vendas registradas na tabela "fatosvendas", uma prévia pode ser observada abaixo.</p>
+                                <div class="image main"><img src="images/data_warehouse/dw_visu.png" alt=""/></div>
+							</section>
+
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

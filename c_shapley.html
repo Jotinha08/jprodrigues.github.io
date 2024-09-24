@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Shapley Value</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="ciencia.html" class="logo" target="_blank">Ciência de Dados</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Página Inicial</a></li>
+							<li><a href="engdados.html">Engenharia de Dados</a></li>
+							<li><a href="ciencia.html">Ciência de Dados</a></li>
+							<li><a href="analise.html">Análise de Dados</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Shapley Value: um estudo<br/>
+									</h1>
+									<p>Estudo sobre o Shapley Value e suas aplicações no processamento de imagem. Projeto feito para a matéria de Processsamento de Imagem Digital no Mestrado.</p>
+								</header>
+								<div class="image main"><img src="images/shapley/carro.jpg" alt="" /></div>
+								
+								<p>Este estudo possui como objetivo estudar a teoria e a prática do Shapley Value, um método de Inteligência Artificial Explicável. Em um primeiro momento foi abordado a teoria dessa técnica e suas aplicações em diferentes áreas do conhecimento, depois foi implementando uma Rede Neural Convolucional 
+									com o intuito de fazer a classificação de objetos e usado o Shapley Value para explicar o resultado durante a classificação e como ela abstrai as características das imagens. Por fim foi discutido o desempenho do Shapley Value nesse contexto.
+								</p>
+								
+								<p>Advindo do desenvolvimento de tecnologias cada vez mais integradas ao uso de inteligência artificial, novas pesquisas buscam desenvolver modelos de forma que seus resultados sejam mais transparentes, e a partir dessa busca de interpretabilidade, técnicas de Inteligência Artificial Explicável (IAE) foram 
+									desenvolvidas, como Class Activation Mapping (CAM) e Local Interpretable Model-agnostic Explanations (LIME). 
+
+									Entre elas, uma técnica desenvolvida para a Teoria dos Jogos Cooperativos em 1953 se destaca, os valores de Shapley, criada por Lloyd Shapley, com o objetivo de realizar uma divisão justa de recursos do resultado de um jogo entre todos os participantes. A técnica atualmente se encontra sendo aplicada no contexto de 
+									aprendizagem de máquina na explanação de resultados, onde é possível mensurar a importância de cada característica em uma inferência, para modelos de menor e maior complexidade.
+								</p>
+
+								<p>Para demonstrar todos os aspectos, foi implementado uma rede neural convolucional para classificar imagens no conjunto de dados CIFAR-10.
+
+								   Essa base de dados é definida por um conjunto de 6.000 imagens, de dez classes distintas, como é possível verificar na figura abaixo, coloridas, com resolução de 32x32 pixels, dividida em 5.000 imagens para treinamento e 1.000 para testes.
+								</p>
+								<div class="image main"><img src="images/shapley/cifar-10.png" alt="" /></div>
+
+								<p>O treinamento foi realizado através de 20 épocas e um tamanho de lote de 64 imagens por lote, cada imagem passou pelo processo de normalização, de forma a converter os pixels do intervalo de 0 a 255 para 0 e 1. Destaca-se também o uso do otimizador Adam para atualização de pesos do modelo durante o treinamento, 
+									a função de perda de entropia cruzada, adequada para classificação multiclasse e a métrica de acurácia para avaliar a porcentagem de previsões corretas.
+									
+									E por fim, para pigmentação dos pontos de interesse, foi utilizado a biblioteca Shap e sua função Permutation Explainer, que utiliza permutações para o cálculo do valores de Shapley nas imagens do CIFAR-10.
+								</p>
+
+								<p>
+									Após as 20 épocas de treinamento no conjunto CIFAR-10, a RNC obteve uma acurácia de 79.28%. Logo após essa etapa, foram destacados o Shapley Value em cinco imagens escolhidas de maneira aleatória, com o objetivo de exemplificar o funcionamento deste método e como ele pode ajudar a entender o aprendizado da RNC.
+									As cinco imagens podem ser observadas na sequência.
+								</p>
+
+								<p>A primeira imagem é de um "sapo" e a rede neural a classificou corretamente. É possível ver os pontos em vermelho e em azul em todas as maiores possibilidades de classificação. Como pode ser observado, a maior incidência de pontos ocorreu no rótulo "cervo", porém, a rede classificou corretamente como "sapo".</p>
+								<div class="image main"><img src="images/shapley/sapo.jpg" alt="" /></div>
+								
+								<p>A segunda imagem possui o rótulo "carro" porém ela foi classificada como um "gato" pela rede, é possível ver os valores de Shapley distribuídos entre as duas predições. Como pode ser observado, apesar da maior quantidade de pontos no rótulo "carro", o modelo a classificou como sendo um "gato".</p>
+								<div class="image main"><img src="images/shapley/carro2.jpg" alt="" /></div>
+								
+								<p>A terceira imagem possui novamente o rótulo "sapo" e foi classificada corretamente mais uma vez. é possível ver que os valores de Shapley foram distribuídos em uma grande quantidade tanto com o rótulo classificado quanto no rótulo "avião".</p>
+								<div class="image main"><img src="images/shapley/sapo2.jpg" alt="" /></div>
+								
+								<p>A quarta imagem foi classificada como um "gato" e, de maneira assertiva, ela é rotulada corretamente. É possível ver que os valores de pouca contribuição (azuis) aparecem mais vezes no rótulo correto, enquanto que no rótulo "cachorro" ocorre uma maior incidência de valores de contribuição positiva, mesmo ele sendo o incorreto.</p>
+								<div class="image main"><img src="images/shapley/gato.jpg" alt="" /></div>
+								
+								<p>Por último, a quinta imagem é de um "carro" e ela foi classificada de maneira correta pela RNC. É possível ver que dessa vez os valores de Shapley estão distribuídos com muito mais frequência no rótulo "carro", apesar de que o rótulo "navio" ainda possuir alguns pontos que podem ser observados.</p>
+								<div class="image main"><img src="images/shapley/carro.jpg" alt="" /></div>
+								
+								<p>De acordo com as figuras, foi possível inferir que a implementação do Shapley Value nesse contexto não foi muito eficiente, com muitos valores sendo atribuídos em áreas de ruídos de imagens e tornando complexo qualquer tipo de análise mais profunda.
+
+									A limitação de hardware também foi um problema enfrentado, uma vez que esse método é computacionalmente inviável em imagens com uma alta resolução, implementações complexas demandam poder computacional maior, diminuindo a sua eficiência em diversos casos. Por conta dessa limitação, a resolução das imagens utilizadas no trabalho 
+									foi de 32x32. Um ponto a ser analisado na nossa implementação é que cada pixel foi tratado como uma característica a ser analisada, aumentando assim o poder computacional necessário para realizar essa tarefa.</p>
+
+								<p>Para ter acesso aos materiais utilizados no trabalho e detalhes da sua execução <a href='https://github.com/Jotinha08/Shapley_Value-PID' target="_blank"> clique aqui.</a></p>
+							</section>
+
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

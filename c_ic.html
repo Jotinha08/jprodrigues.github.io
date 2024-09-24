@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Rede Neural para identificação de ruídos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="ciencia.html" class="logo" target="_blank">Ciência de Dados</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Página Inicial</a></li>
+							<li><a href="engdados.html">Engenharia de Dados</a></li>
+							<li><a href="ciencia.html">Ciência de Dados</a></li>
+							<li><a href="analise.html">Análise de Dados</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Capsule Neural Network e Explainable Artificial Intelligence aplicado a problemas de adulteração de imagem para perícia forense computacional<br/>
+									</h1>
+									<p>Criação de uma rede neural em cápsulas para detectar imagens que sofreram altereação pelo algoritmo Seam Carving. Projeto desenvolvido como Iniciação Científica.</p>
+								</header>
+								<div class="image main"><img src="images/ic/imagens.PNG" alt="" /></div>
+								
+                                <p>Este trabalho tem como objetivo investigar o desempenho da Capsule Neural Network (CapsNet) no contexto da detecção de Seam Carving e compará-lo com o desempenho da Convolutional Neural Network (CNN). 
+                                    Seam Carving é uma técnica de processamento de imagens utilizada para redimensionar imagens de maneira adaptativa, buscando preservar características importantes enquanto ajusta suas dimensões. 
+                                    Ele opera identificando "seams" ou caminhos de pixels conectados, geralmente em direções verticais ou horizontais, que percorrem a imagem de cima para baixo ou da esquerda para a direita. Essas "seams" são 
+                                    selecionadas com base em uma medida de energia associada a cada pixel, indicando sua importância na imagem.
+                                    Por conta disso, imagens podem ser alteradas, gerando um grande problema para a forense computacional e esse trabalho busca mostrar o desempenho das duas técnicas e tirar conclusões sobre isso.</p>
+								
+								<p>O fluxograma de desenvolvimento do trabalho pode ser observado na sequência. O conjunto de dados utilizado é composto por dois tipos de qualidade de imagens no formato JPEG, Q75 E Q40, ambos com duas pastas, uma pasta 
+                                    com 7837 imagens intocadas e outra com as mesmas 7837 imagens porém modificadas pelo algoritmo Seam Carving.
+                                </p>
+                                <div class="image main"><img src="images/ic/esquema.png" alt="" /></div>
+								
+								<p>Depois de escolher o conjunto de dados, foram implementadas uma rede neural convolucional e outra rede neural em cápsulas e depois de suas respectivas épocas de treinamento, validação e teste, foram comparados os resultados.
+                                </p>
+
+								<p>A matriz de confusão obtida através dos resultados da Capsule Neural Network pode ser vista na imagem abaixo:
+                                </p>
+                                <div class="image main"><img src="images/ic/precisa_caps.PNG" alt="" /></div>
+								
+								<p>Já a matriz de confusão dos resultados da CNN é representado a seguir:</p>
+								<div class="image main"><img src="images/ic/precisa_cnn.PNG" alt=""/></div>
+
+								<p>Os resultados obtidos revelaram que a CNN demonstrou um desempenho superior em comparação com a CapsNet. A CNN, aproveitando sua capacidade de aprender características hierárquicas e espaciais, conseguiu extrair padrões 
+                                    relevantes de forma mais eficaz, resultando em uma performance geral mais satisfatória.
+                                    No entanto, é crucial destacar que ambas as abordagens apresentaram resultados promissores, indicando que as CapsNet também têm potencial para contribuir positivamente para a detecção de imagens adulteradas. A complexidade 
+                                    e natureza específica da tarefa podem ter influenciado a performance relativa das duas arquiteturas.</p>
+							</section>
+
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

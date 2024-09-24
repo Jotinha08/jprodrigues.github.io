@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sistema de Recomendação de Música</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="ciencia.html" class="logo" target="_blank">Ciência de Dados</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Página Inicial</a></li>
+							<li><a href="engdados.html">Engenharia de Dados</a></li>
+							<li><a href="ciencia.html">Ciência de Dados</a></li>
+							<li><a href="analise.html">Análise de Dados</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Sistema de Recomendação de Música usando Clusterização de Dados em Grafos<br/>
+									</h1>
+									<p>Criação de um sistema de recomendação de música utilizando clusterização de dados. Projeto desenvolvido para a matéria de Inteligência Artificial no Mestrado.</p>
+								</header>
+								<div class="image main"><img src="images/sistema_recomendacao/cluster_genero.png" alt="" /></div>
+								<p>Serviços de streaming musicais vem ganhando bastante relevância nos últimos anos devido a facilidade de acesso 
+									que esses serviços vem ganhando. Dessa forma, a quantidade de dados gerado pelos usuários é enorme e sistemas 
+									de recomendação são uma solução para filtrar, analisar e recomendar músicas, garantindo uma experiência única 
+									e agradável. Este trabalho tem como objetivo criar um sistema de recomendação utilizando grafos para mapear o 
+									gosto musical dos usuários e recomendar músicas que possam agradá-los.</p>
+								
+								<p>Neste projeto foram realizados duas clusterizações utilizando o algoritmo k-means, uma classificando os gêneros de músicas e como gêneros parecidos 
+									ficam perto e a outra classificando as músicas em si, visando entender como as músicas de mesmo gênero se 
+									aproximam e se distanciam.</p>
+								
+								<p>A figura a seguir mostra o resultado da clusterização usando os gêneros com cada cor representando um 
+									tipo de gênero. Como o banco de dados possui diversos gêneros, foi adotado cores em um espectro variando de amarelo e 
+									roxo.</p>
+								<div class="image main"><img src="images/sistema_recomendacao/cluster_genero.png" alt="" /></div>
+
+								<p>Gêneros que são "únicos" ficam mais distantes dos outros pontos. A parcela laranja na parte debaixo da figura são gêneros 
+									como pop vietnamita, rock chileno e entre outros.</p>
+								
+								<p>Já esta figura representa uma clusterização através do nome da música e seu gênero, assim, músicas de 
+									mesmo gênero e com a mesma musicalidade ficam mais próximos do que músicas do mesmo gênero mas com a musicalidade diferente.</p>
+								<div class="image main"><img src="images/sistema_recomendacao/cluster_musica.png" alt="" /></div>
+
+								<p>Como pode ser observado, algumas músicas acabam aparecendo no meio de cores diferentes, isso se deve ao fato de que a clusterização 
+									pode acabar caindo no vale da incerteza, quando um ponto de dados possui características bem diferentes das consideradas normais.</p>
+								
+								<p>Através dessas duas figuras, podemos concluir que de fato músicas parecidas ficam próximas umas das outras, com isso, se torna possível 
+									a criação do sistema de recomendação, onde será analisado uma música e recomendado músicas ao redor dela.</p>
+
+								<p>Para a criação do sistema de recomendação, será utilizando uma biblioteca do Python chamada Spotipy, que é uma Web API do Spotify com integração 
+									com o Python. Ela será utilizada pare pegar dados de usuários e fazer as recomendações baseadas nos dados obtidos durante o agrupamento de músicas, 
+									fazendo com que a recomendação seja precisa.</p>
+								
+								<p>A próxima imagem mostra o resultado do sistema, onde foi requisitado recomendações da música Mockingbird do 
+									artista Eminem lançada em 2004. Nela podemos ver que outras músicas com o mesmo gênero e musicalidade parecidas foram recomendadas. 
+									As recomendações não estão em ordem.</p>
+								<div class="image main"><img src="images/sistema_recomendacao/exemplo_recomendacao.png" alt="" /></div>
+
+								<p>Em resumo, o sistema classifica a música requisitada como um ponto de dados dentro do cluster, analisa as músicas parecidas com ela e as recomenda. São 
+									levantados pontos como o ano de lançamento, o gênero da música, sua popularidade, duração e se a música é explícita ou não. Vale ressaltar também que 
+									algumas músicas não são possíveis de serem requisitadas pois podem não estar disponíveis na API do Spotify. Também é importante pontuar que as músicas 
+									são requisitadas exclusivamente do Spotify, sendo impossível requisita-lás em outras plataformas como o Apple Music, Deezer, Amazon Music e entro outras.</p>
+
+								<p>Para ter acesso aos materiais utilizados no trabalho e detalhes da sua execução <a href='https://github.com/Jotinha08/Projeto_IA' target="_blank"> clique aqui.</a></p>
+							</section>
+
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

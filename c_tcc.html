@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Rede Neural para Classificação de Rostos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="ciencia.html" class="logo" target="_blank">Ciência de Dados</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Página Inicial</a></li>
+							<li><a href="engdados.html">Engenharia de Dados</a></li>
+							<li><a href="ciencia.html">Ciência de Dados</a></li>
+							<li><a href="analise.html">Análise de Dados</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Uso de Aprendizado de Máquina para detecção de faces falsas geradas por Inteligência Artificial<br/>
+									</h1>
+									<p>Criação de uma rede neural em cápsulas para classificar rostos humanos reais e rostos humanos falsos gerados por inteligência artificial. Projeto desenvolvido como Trabalho de Conclusão de Curso em Ciência da Computação.</p>
+								</header>
+								<div class="image main"><img src="images/tcc/dataset.jpg" alt="" /></div>
+								<p>O avanço no campo da Inteligência Artificial, especialmente na área de aprendizado profundo, possibilitou a criação de rostos humanos por meio de modelos de redes neurais, como a Generative Adversarial Network (GAN). Entretanto, 
+                                    esse avanço levantou preocupações significativas em relação à segurança, especialmente nos contextos de biometria e autenticação digital. Diante desse problema, este trabalho concentra-se na aplicação de uma técnica específica 
+                                    de aprendizado de máquina conhecida como Capsule Neural Network (CapsNet). Esta abordagem se mostrou promissora para o processamento de imagens e será comparada a outras técnicas, como Local Binary Pattern, Res-Net e Gram-Net. A 
+                                    análise detalhada desses métodos permitirá uma compreensão mais aprofundada de suas capacidades e limitações, contribuindo para o desenvolvimento de sistemas mais seguros e eficazes no contexto da inteligência artificial e suas aplicações práticas. 
+                                    A avaliação crítica dessas técnicas é essencial para aprimorar a segurança e a autenticidade em sistemas que dependem de reconhecimento facial e autenticação digital.</p>
+								
+								<p>O fluxograma de desenvolvimento do trabalho pode ser observado na figura a seguir. A área de desenvolvimento utilizada foi o Google Collab, a rede neural foi implementada lá e as etapas de treinamento e teste da rede também foram reliazadas
+                                    por lá, depois foram coletadas as informações de acurácia e precisão do modelo da rede neural em cápsulas e logo após foram comparados os resultados com rede já existentes para a mesma tarefa.
+                                </p>
+                                <div class="image main"><img src="images/tcc/Metodologia.jpg" alt="" /></div>
+								
+								<p>Proposto inicialmente em 2017 por  Geoffrey E. Hilton, a Capsule Neural Network, ou CapsNet, é uma rede neural que usa o conceito de cápsulas para o seu funcionamento.
+                                    Essa rede utiliza as cápsulas e suas propriedades para fornecer uma solução na detecção de partes de objetos em uma imagem e representar relacionamentos espaciais entre essas partes. Isso significa que ela é capaz de reconhecer o mesmo objeto, 
+                                    como um rosto, em diversos ângulos diferentes e com o número típico de características (olhos, nariz, boca), mesmo que não tenha sido treinada especificamente para esta tarefa. A figura a seguir representa a estrutura da rede em cápsulas.
+                                </p>
+								<div class="image main"><img src="images/tcc/Capsule.jpg" alt="" /></div>
+
+								<p>A base de dados escolhida para esse projeto consiste em um banco de dados com 140 mil imagens falsas e reais, retirada do site Kaggle, uma plataforma mantida pela Google LLC.
+                                   Essas 140 mil imagens estão divididas em 70 mil imagens de rostos falsos que foram criando por uma GAN, a StyleGAN, e 70 mil imagens de rostos verdadeiros que foram retirados do site Flickr, uma plataforma que hospeda imagens como fotografias e desenhos reais.
+                                   Abaixo está a divisão das imagens para o treinamento, validação e teste do modelo.
+                                </p>
+                                <div class="image main"><img src="images/tcc/tabela_dataset.PNG" alt="" /></div>
+								
+								<p>O processo de treinamento da rede neural presente nesse trabalho, ou seja, o treinamento de 140 mil imagens de rostos falsos e verdadeiros, foi realizado no total de 25 épocas. Em cada época a rede divide os dados em dois: dado de treinamento (acurácia e perda de treinamento) e 
+                                    um de validação (perda de validação) como está apresentado na figura a seguir. Ela também nos mostra os valores que cada dado assumiu na sua respectiva época.</p>
+								<div class="image main"><img src="images/tcc/tabela_resultado.PNG" alt=""/></div>
+
+								<p>Por fim, aqui está o comparativo dos resultados obtidos pela rede neural implementada no trabalho quando comparada com resultados obtidos de outras redes em outros trabalhos</p>
+								<div class="image main"><img src="images/tcc/tabela_comparacao.PNG" alt=""/></div>
+
+								<p>O estudo realizado apresentou uma análise aprofundada sobre a eficácia da CapsNet no contexto da segurança da informação, concentrando-se especificamente na detecção de faces falsas. Os resultados obtidos no final das fases de treinamento, validação e teste, indicam um desempenho 
+                                    satisfatório dessa técnica na detecção de rostos gerados por Inteligencia Artificial.</p>
+
+								<p>Para ter acesso aos materiais utilizados no trabalho e detalhes da sua execução <a href='https://github.com/Jotinha08/Trabalho-de-Conclus-o-de-Curso' target="_blank"> clique aqui.</a></p>
+							</section>
+
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
